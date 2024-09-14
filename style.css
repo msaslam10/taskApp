@@ -92,7 +92,7 @@ li button {
 }
 
 .complete-btn {
-    background-color: green; /* Change background color to green */
+    background-color: #5cb85c; /* Change background color to green */
     color: white;            /* Set the text/icon color to white for contrast */
     border: none;            /* Optional: Remove the border */
     padding: 10px;           /* Optional: Add some padding */
