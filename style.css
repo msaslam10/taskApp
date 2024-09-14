@@ -16,6 +16,18 @@ body {
     border-radius: 8px;
 }
 
+/* Add style for the circular image */
+.home-image {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%; /* This makes the image a circle */
+    margin: 0 auto 20px;
+    display: block;
+    object-fit: cover; /* Ensures the image is scaled to fit without distortion */
+    border: 2px solid #ddd; /* Optional border around the image */
+}
+
+
 h1 {
     text-align: center;
     color: #333;
