@@ -91,6 +91,14 @@ li button {
     border-radius: 4px;
 }
 
+.complete-btn {
+    background-color: #5cb85c; /* Change background color to green */
+    color: white;            /* Set the text/icon color to white for contrast */
+    border: none;            /* Optional: Remove the border */
+    padding: 5px 10px;           /* Optional: Add some padding */
+    border-radius: 4px;      /* Optional: Add rounded corners */
+    cursor: pointer;         /* Optional: Show pointer cursor on hover */
+}
 
 
 li button:hover {
