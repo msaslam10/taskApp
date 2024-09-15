@@ -48,8 +48,8 @@ function displayTask(task) {
             <p>${task.description}</p>
         </div>
         <div>
-            <button class="complete-btn">✔️</button>
-            <button class="delete-btn">❌</button>
+            <button class="complete-btn">Complete</button>
+            <button class="delete-btn">Remove</button>
         </div>
     `;
     
