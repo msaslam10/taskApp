@@ -1,3 +1,56 @@
+// Function to switch between forms
+function switchForm(form) {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('signup-form').style.display = 'none';
+    document.getElementById('forgot-form').style.display = 'none';
+
+    document.getElementById(`${form}-form`).style.display = 'block';
+}
+
+// Handle Login (for now, just demo purposes)
+function handleLogin(event) {
+    event.preventDefault();
+    
+    // Simulate login success (you can add real authentication here)
+    alert('Logged in successfully!');
+    
+    // Show the task manager after login
+    document.getElementById('task-manager').style.display = 'block';
+    document.querySelector('.auth-forms').style.display = 'none'; // Hide login/signup forms
+}
+
+// Handle Sign Up (for now, just demo purposes)
+function handleSignUp(event) {
+    event.preventDefault();
+    alert('Account created successfully! Now login.');
+    switchForm('login'); // Switch to login form after sign-up
+}
+
+// Handle Forgot Password (for now, just demo purposes)
+function handleForgotPassword(event) {
+    event.preventDefault();
+    alert('Password reset link sent to your email!');
+    switchForm('login');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Select the form, input fields, and task list
 const taskForm = document.getElementById('task-form');
 const taskTitleInput = document.getElementById('task-title');
