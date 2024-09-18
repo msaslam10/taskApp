@@ -32,7 +32,7 @@ body {
     background-color: #007bff; /* Button background color */
     color: white; /* Button text color */
     border: none; /* Remove border */
-    padding: 5px 10px; /* Add padding */
+    padding: 5px 5px; /* Add padding */
     cursor: pointer; /* Pointer cursor on hover */
 }
 
