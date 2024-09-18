@@ -32,15 +32,8 @@ body {
     background-color: #007bff; /* Button background color */
     color: white; /* Button text color */
     border: none; /* Remove border */
-    padding: 10px 20px; /* Add padding */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px; /* Font size */
-    font-weight: bold; /* Bold text */
+    padding: 5px 10px; /* Add padding */
     cursor: pointer; /* Pointer cursor on hover */
-    position: fixed; /* Fixed position */
-    top: 20px; /* Distance from the top */
-    right: 20px; /* Distance from the right */
-    z-index: 1000; /* Ensure it is on top of other elements */
 }
 
 /* Optional: Add hover effect */
@@ -48,10 +41,6 @@ body {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Ensure the container has relative positioning if using absolute positioning for children */
-.container {
-    position: relative;
-}
 
 
 h1 {
