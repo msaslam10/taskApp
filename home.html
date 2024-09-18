@@ -52,6 +52,14 @@
 
 <!-- Task Manager Section (Only visible after login) -->
         <div class="task-manager" id="task-manager" style="display: none;">
+            <button id="edit-profile-btn">Edit Profile</button>
+
+<script>
+    document.getElementById('edit-profile-btn').addEventListener('click', function() {
+        window.location.href = 'edit-profile.html';
+    });
+</script>
+
 
         <!-- Input form for adding tasks -->
         <form id="task-form">
