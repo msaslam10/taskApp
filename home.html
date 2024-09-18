@@ -65,6 +65,29 @@
         <form id="task-form">
             <input type="text" id="task-title" placeholder="Task Title" required>
             <textarea id="task-desc" placeholder="Task Description (optional)"></textarea>
+             <!-- Schedule Date -->
+    <label for="task-date">Due Date:</label>
+    <input type="date" id="task-date" required>
+
+    <!-- Priority Selection -->
+    <label for="task-priority">Priority:</label>
+    <select id="task-priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select>
+
+    <!-- Categorization -->
+    <label for="task-category">Category:</label>
+    <select id="task-category">
+        <option value="work">Work</option>
+        <option value="personal">Personal</option>
+        <option value="home">Home</option>
+        <option value="education">Education</option>
+        <option value="social">Social</option>
+        <option value="education">Education</option>
+        
+    </select>
             <button type="submit">Add Task</button>
         </form>
 
