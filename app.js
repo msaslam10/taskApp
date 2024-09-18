@@ -1,6 +1,4 @@
- feature/edit-profile
 
- main
 // Function to switch between forms
 function switchForm(form) {
     document.getElementById('login-form').style.display = 'none';
@@ -17,7 +15,7 @@ if (document.getElementById(`${form}-form`)) {
 
 
     document.getElementById(`${form}-form`).style.display = 'block';
- main
+
 }
 
 // Handle Login (for now, just demo purposes)
@@ -31,7 +29,7 @@ function handleLogin(event) {
     document.getElementById('task-manager').style.display = 'block'; feature/edit-profile
 document.getElementById('edit-profile-btn').style.display = 'block'; // Show Edit Profile Button
 
- main
+
     document.querySelector('.auth-forms').style.display = 'none'; // Hide login/signup forms
 }
 
@@ -77,7 +75,7 @@ document.getElementById('edit-profile').addEventListener('submit', handleEditPro
 
 
 
- main
+
 
 
 
