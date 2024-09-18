@@ -9,6 +9,7 @@ body {
 }
 
 .container {
+    position:relative;
     width: 400px;
     padding: 20px;
     background-color: white;
@@ -29,6 +30,10 @@ body {
 
 /* Ensure the button is styled properly */
 #edit-profile-btn {
+
+    position: absolute;  /* Allows positioning within the container */
+    top: 10px;           /* Moves button 10px from the top */
+    left: 10px;          /* Moves button 10px from the left */
     background-color: #007bff; /* Button background color */
     color: white; /* Button text color */
     border: none; /* Remove border */
