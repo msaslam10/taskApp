@@ -1,68 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do Task Manager</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-<!-- Add the image to the home page -->
-        <img src="home-image.jpg" alt="To-Do List Image" class="home-image">
-        <h1>My Tasks</h1>
+// Function to switch between forms
+function switchForm(form) {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('signup-form').style.display = 'none';
+    document.getElementById('forgot-form').style.display = 'none';
+    document.getElementById('task-manager').style.display = 'none';
 
+    document.getElementById(`${form}-form`).style.display = 'block';
+    document.getElementById('auth-forms').style.display = 'block';
+}
 
- <!-- Login and Signup Section -->
-        <div class="auth-forms">
-            <!-- Login Form -->
-            <div class="form-container" id="login-form">
-                <h2>Login</h2>
-                <form onsubmit="handleLogin(event)">
-                    <input type="email" id="login-email" placeholder="Enter your email" required>
-                    <input type="password" id="login-password" placeholder="Enter your password" required>
-                    <button type="submit">Login</button>
-                    <p>Don't have an account? <a href="#" onclick="switchForm('signup')">Sign Up</a></p>
-                    <p><a href="#" onclick="switchForm('forgot')">Forgot Password?</a></p>
-                </form>
-            </div>
+// Handle Login
+document.getElementById('login').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Simulate login success
+    alert('Logged in successfully!');
+    
+    // Show the task manager after login
+    document.getElementById('task-manager').style.display = 'block';
+    document.getElementById('auth-forms').style.display = 'none'; // Hide login/signup forms
+});
 
-            <!-- Signup Form -->
-            <div class="form-container" id="signup-form" style="display: none;">
-                <h2>Sign Up</h2>
-                <form onsubmit="handleSignUp(event)">
-                    <input type="email" id="signup-email" placeholder="Enter your email" required>
-                    <input type="password" id="signup-password" placeholder="Enter your password" required>
-                    <button type="submit">Sign Up</button>
-                    <p>Already have an account? <a href="#" onclick="switchForm('login')">Login</a></p>
-                </form>
-            </div>
+// Handle Sign Up
+document.getElementById('signup').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Account created successfully! Now login.');
+    switchForm('login'); // Switch to login form after sign-up
+});
 
-            <!-- Forgot Password Form -->
-            <div class="form-container" id="forgot-form" style="display: none;">
-                <h2>Forgot Password</h2>
-                <form onsubmit="handleForgotPassword(event)">
-                    <input type="email" id="forgot-email" placeholder="Enter your email" required>
-                    <button type="submit">Reset Password</button>
-                    <p><a href="#" onclick="switchForm('login')">Back to Login</a></p>
-                </form>
-            </div>
-        </div>
-
-<!-- Task Manager Section (Only visible after login) -->
-        <div class="task-manager" id="task-manager" style="display: none;">
-
-        <!-- Input form for adding tasks -->
-        <form id="task-form">
-            <input type="text" id="task-title" placeholder="Task Title" required>
-            <textarea id="task-desc" placeholder="Task Description (optional)"></textarea>
-            <button type="submit">Add Task</button>
-        </form>
-
-        <!-- Task list -->
-        <ul id="task-list"></ul>
-    </div>
-
-    <script src="app.js"></script>
-</body>
-</html>
+// Handle Forgot Password
+document.getElementById('forgot-password').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Password reset link sent to your email!');
+    switchForm('login'); // Switch back to login form after forgot password
+});
