@@ -9,6 +9,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // Optionally, redirect or update UI here
     });
 
+    function previewProfilePic(event) {
+    const reader = new FileReader();
+    reader.onload = function() {
+        const preview = document.getElementById('profile-pic-preview');
+        preview.src = reader.result;
+        preview.style.display = 'block'; // Make the preview visible
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+
+
     // Handle cancel button
     cancelBtn.addEventListener('click', function() {
         // Optionally, redirect or go back to the previous page
