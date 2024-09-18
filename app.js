@@ -1,9 +1,12 @@
+ feature/edit-profile
 
+ main
 // Function to switch between forms
 function switchForm(form) {
     document.getElementById('login-form').style.display = 'none';
     document.getElementById('signup-form').style.display = 'none';
     document.getElementById('forgot-form').style.display = 'none';
+ feature/edit-profile
 document.getElementById('edit-profile-form').style.display = 'none';
 
     document.getElementById(`${form}-form`).style.display = 'block';
@@ -11,6 +14,10 @@ document.getElementById('edit-profile-form').style.display = 'none';
 if (document.getElementById(`${form}-form`)) {
         document.getElementById(`${form}-form`).style.display = 'block';
     }
+
+
+    document.getElementById(`${form}-form`).style.display = 'block';
+ main
 }
 
 // Handle Login (for now, just demo purposes)
@@ -21,8 +28,10 @@ function handleLogin(event) {
     alert('Logged in successfully!');
     
     // Show the task manager after login
-    document.getElementById('task-manager').style.display = 'block';
+    document.getElementById('task-manager').style.display = 'block'; feature/edit-profile
 document.getElementById('edit-profile-btn').style.display = 'block'; // Show Edit Profile Button
+
+ main
     document.querySelector('.auth-forms').style.display = 'none'; // Hide login/signup forms
 }
 
@@ -41,6 +50,7 @@ function handleForgotPassword(event) {
 }
 
 
+ feature/edit-profile
 // Handle Edit Profile (for now, just demo purposes)
 function handleEditProfile(event) {
     event.preventDefault();
@@ -53,6 +63,21 @@ document.getElementById('login').addEventListener('submit', handleLogin);
 document.getElementById('signup').addEventListener('submit', handleSignUp);
 document.getElementById('forgot-password').addEventListener('submit', handleForgotPassword);
 document.getElementById('edit-profile').addEventListener('submit', handleEditProfile);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ main
 
 
 
