@@ -28,6 +28,16 @@ body {
     border: 2px solid #ddd; /* Optional border around the image */
 }
 
+.profile-pic-preview {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Ensure the width and height are equal to form a circle */
+    border-radius: 50%; /* This makes the image a circle */
+    object-fit: cover; /* This ensures the image fits inside the circle */
+    border: 2px solid #ccc; /* Optional: Add a border around the image */
+    margin-bottom: 15px; /* Add some spacing */
+}
+
+
 /* Ensure the button is styled properly */
 #edit-profile-btn {
 
