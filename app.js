@@ -1,192 +1,68 @@
-
-// Function to switch between forms
-function switchForm(form) {
-    document.getElementById('login-form').style.display = 'none';
-    document.getElementById('signup-form').style.display = 'none';
-    document.getElementById('forgot-form').style.display = 'none';
- feature/edit-profile
-document.getElementById('edit-profile-form').style.display = 'none';
-
-    document.getElementById(`${form}-form`).style.display = 'block';
-
-if (document.getElementById(`${form}-form`)) {
-        document.getElementById(`${form}-form`).style.display = 'block';
-    }
-
-
-    document.getElementById(`${form}-form`).style.display = 'block';
-
-}
-
-// Handle Login (for now, just demo purposes)
-function handleLogin(event) {
-    event.preventDefault();
-    
-    // Simulate login success (you can add real authentication here)
-    alert('Logged in successfully!');
-    
-    // Show the task manager after login
-    document.getElementById('task-manager').style.display = 'block'; feature/edit-profile
-document.getElementById('edit-profile-btn').style.display = 'block'; // Show Edit Profile Button
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+<!-- Add the image to the home page -->
+        <img src="home-image.jpg" alt="To-Do List Image" class="home-image">
+        <h1>My Tasks</h1>
 
 
-    document.querySelector('.auth-forms').style.display = 'none'; // Hide login/signup forms
-}
+ <!-- Login and Signup Section -->
+        <div class="auth-forms">
+            <!-- Login Form -->
+            <div class="form-container" id="login-form">
+                <h2>Login</h2>
+                <form onsubmit="handleLogin(event)">
+                    <input type="email" id="login-email" placeholder="Enter your email" required>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                    <button type="submit">Login</button>
+                    <p>Don't have an account? <a href="#" onclick="switchForm('signup')">Sign Up</a></p>
+                    <p><a href="#" onclick="switchForm('forgot')">Forgot Password?</a></p>
+                </form>
+            </div>
 
-// Handle Sign Up (for now, just demo purposes)
-function handleSignUp(event) {
-    event.preventDefault();
-    alert('Account created successfully! Now login.');
-    switchForm('login'); // Switch to login form after sign-up
-}
+            <!-- Signup Form -->
+            <div class="form-container" id="signup-form" style="display: none;">
+                <h2>Sign Up</h2>
+                <form onsubmit="handleSignUp(event)">
+                    <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    <input type="password" id="signup-password" placeholder="Enter your password" required>
+                    <button type="submit">Sign Up</button>
+                    <p>Already have an account? <a href="#" onclick="switchForm('login')">Login</a></p>
+                </form>
+            </div>
 
-// Handle Forgot Password (for now, just demo purposes)
-function handleForgotPassword(event) {
-    event.preventDefault();
-    alert('Password reset link sent to your email!');
-    switchForm('login');
-}
-
-
- feature/edit-profile
-// Handle Edit Profile (for now, just demo purposes)
-function handleEditProfile(event) {
-    event.preventDefault();
-    alert('Profile updated successfully!');
-    switchForm('task-manager'); // Switch back to task manager
-}
-
-
-document.getElementById('login').addEventListener('submit', handleLogin);
-document.getElementById('signup').addEventListener('submit', handleSignUp);
-document.getElementById('forgot-password').addEventListener('submit', handleForgotPassword);
-document.getElementById('edit-profile').addEventListener('submit', handleEditProfile);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Select the form, input fields, and task list
-const taskForm = document.getElementById('task-form');
-const taskTitleInput = document.getElementById('task-title');
-const taskDescInput = document.getElementById('task-desc');
-const taskList = document.getElementById('task-list');
-
-// Load tasks from localStorage on page load
-document.addEventListener('DOMContentLoaded', loadTasks);
-
-// Add event listener for form submission
-taskForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    addTask();
-});
-
-// Add a new task
-function addTask() {
-    const title = taskTitleInput.value.trim();
-    const description = taskDescInput.value.trim();
-
-    if (title === '') return;  // Don't allow empty titles
-
-    // Create task object
-    const task = {
-        id: Date.now(),
-        title: title,
-        description: description,
-        completed: false
-    };
-
-    // Add task to the list and localStorage
-    saveTask(task);
-    displayTask(task);
-
-    // Clear form fields
-    taskTitleInput.value = '';
-    taskDescInput.value = '';
-}
-
-// Display a task in the task list
-function displayTask(task) {
-    const li = document.createElement('li');
-    li.className = task.completed ? 'complete' : '';
-    li.setAttribute('data-id', task.id);
-    li.innerHTML = `
-        <div>
-            <strong>${task.title}</strong>
-            <p>${task.description}</p>
+            <!-- Forgot Password Form -->
+            <div class="form-container" id="forgot-form" style="display: none;">
+                <h2>Forgot Password</h2>
+                <form onsubmit="handleForgotPassword(event)">
+                    <input type="email" id="forgot-email" placeholder="Enter your email" required>
+                    <button type="submit">Reset Password</button>
+                    <p><a href="#" onclick="switchForm('login')">Back to Login</a></p>
+                </form>
+            </div>
         </div>
-        <div>
-            <button class="complete-btn">Complete</button>
-            <button class="delete-btn">Remove</button>
-        </div>
-    `;
-    
-    // Add event listeners for complete and delete buttons
-    li.querySelector('.complete-btn').addEventListener('click', function() {
-        toggleComplete(task.id);
-    });
-    li.querySelector('.delete-btn').addEventListener('click', function() {
-        deleteTask(task.id);
-    });
 
-    // Add the task to the task list in the DOM
-    taskList.appendChild(li);
-}
+<!-- Task Manager Section (Only visible after login) -->
+        <div class="task-manager" id="task-manager" style="display: none;">
 
-// Load tasks from localStorage
-function loadTasks() {
-    const tasks = getTasks();
-    tasks.forEach(displayTask);
-}
+        <!-- Input form for adding tasks -->
+        <form id="task-form">
+            <input type="text" id="task-title" placeholder="Task Title" required>
+            <textarea id="task-desc" placeholder="Task Description (optional)"></textarea>
+            <button type="submit">Add Task</button>
+        </form>
 
-// Get tasks from localStorage
-function getTasks() {
-    const tasks = localStorage.getItem('tasks');
-    return tasks ? JSON.parse(tasks) : [];
-}
+        <!-- Task list -->
+        <ul id="task-list"></ul>
+    </div>
 
-// Save a task to localStorage
-function saveTask(task) {
-    const tasks = getTasks();
-    tasks.push(task);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
-// Toggle task completion status
-function toggleComplete(id) {
-    const tasks = getTasks();
-    const taskIndex = tasks.findIndex(task => task.id === id);
-    if (taskIndex >= 0) {
-        tasks[taskIndex].completed = !tasks[taskIndex].completed;
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-        refreshTaskList();
-    }
-}
-
-// Delete a task
-function deleteTask(id) {
-    let tasks = getTasks();
-    tasks = tasks.filter(task => task.id !== id);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    refreshTaskList();
-}
-
-// Refresh the task list in the DOM
-function refreshTaskList() {
-    taskList.innerHTML = '';
-    loadTasks();
-}
+    <script src="app.js"></script>
+</body>
+</html>
