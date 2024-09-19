@@ -53,9 +53,9 @@ taskForm.addEventListener('submit', function(e) {
 function addTask() {
     const title = taskTitleInput.value.trim();
     const description = taskDescInput.value.trim();
-    const taskDate = taskDateInput.value; 
-    const taskPriority = prioritySelect.value; 
-    const taskCategory = categorySelect.value; 
+    const taskDate = date.value; 
+    const taskPriority = task-priority.value; 
+    const taskCategory = task-category.value; 
 
     if (title === '') return;  // Don't allow empty titles
 
@@ -77,9 +77,9 @@ function addTask() {
     // Clear form fields
     taskTitleInput.value = '';
     taskDescInput.value = '';
-    taskDateInput.value = '';
-    prioritySelect.value = '';    
-    categorySelect.value = ''; 
+    date.value = '';
+    task-priority.value = '';    
+    task-category.value = ''; 
 }
 
 // Display a task in the task list
