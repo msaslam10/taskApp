@@ -39,6 +39,9 @@ const taskForm = document.getElementById('task-form');
 const taskTitleInput = document.getElementById('task-title');
 const taskDescInput = document.getElementById('task-desc');
 const taskList = document.getElementById('task-list');
+const taskDateInput = document.getElementById('task-date');  // Assuming this is the date input
+const taskPriorityInput = document.getElementById('task-priority');  // Select priority
+const taskCategoryInput = document.getElementById('task-category');  // Select category
 
 // Load tasks from localStorage on page load
 document.addEventListener('DOMContentLoaded', loadTasks);
