@@ -34,23 +34,6 @@ function handleForgotPassword(event) {
     switchForm('login');
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Select the form, input fields, and task list
 const taskForm = document.getElementById('task-form');
 const taskTitleInput = document.getElementById('task-title');
@@ -70,6 +53,9 @@ taskForm.addEventListener('submit', function(e) {
 function addTask() {
     const title = taskTitleInput.value.trim();
     const description = taskDescInput.value.trim();
+    const taskDate = taskDateInput.value; 
+    const taskPriority = prioritySelect.value; 
+    const taskCategory = categorySelect.value; 
 
     if (title === '') return;  // Don't allow empty titles
 
@@ -78,6 +64,9 @@ function addTask() {
         id: Date.now(),
         title: title,
         description: description,
+        date: taskDate,             
+        priority: taskPriority,    
+        category: taskCategory,
         completed: false
     };
 
@@ -88,6 +77,9 @@ function addTask() {
     // Clear form fields
     taskTitleInput.value = '';
     taskDescInput.value = '';
+    taskDateInput.value = '';
+    prioritySelect.value = '';    
+    categorySelect.value = ''; 
 }
 
 // Display a task in the task list
@@ -99,6 +91,9 @@ function displayTask(task) {
         <div>
             <strong>${task.title}</strong>
             <p>${task.description}</p>
+            <p><em>Date: ${task.date}</em></p>
+            <p><em>Priority: ${task.priority}</em></p>
+            <p><em>Category: ${task.category}</em></p>
         </div>
         <div>
             <button class="complete-btn">Complete</button>
