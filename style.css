@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
@@ -70,6 +70,7 @@ form {
 }
 
 input, textarea, select, input[type="date"] {
+    background-color: #f4f4f4;
     width: 100%;
     padding: 10px;
     margin: 5px 0;
