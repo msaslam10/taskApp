@@ -94,7 +94,7 @@ function displayTask(task) {
         <div>
             <strong>${task.title}</strong>
             <p>${task.description}</p>
-            <p><em>Date: ${task.date}</em></p>
+            <p><em>Due Date: ${task.date}</em></p>
             <p><em>Priority: ${task.priority}</em></p>
             <p><em>Category: ${task.category}</em></p>
         </div>
