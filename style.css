@@ -159,3 +159,7 @@ li button:hover {
     background-color: #999;
     padding: 10px 2px;
 }
+
+.selected {
+    background-color: green;
+}
