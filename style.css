@@ -49,7 +49,7 @@ body {
     border: none; /* Remove border */
     padding: 5px 5px;/* Add padding */
     width:100px;
-    height:50pxx
+    height:50px;
     cursor: pointer; /* Pointer cursor on hover */
 }
 
@@ -148,4 +148,14 @@ li button {
 
 li button:hover {
     background-color: #c9302c;
+}
+
+#filter-tags{
+    display: flex;
+    gap: 4px;
+}
+
+.filter-btn{
+    background-color: #999;
+    padding: 10px 2px;
 }
