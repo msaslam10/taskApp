@@ -75,7 +75,11 @@ function addTask() {
 
     // Add task to the list and localStorage
     saveTask(task);
-    displayTask(task);
+
+    // to sort the priority
+    loadTasks(task)
+
+    // displayTask(task);
 
     // Clear form fields
     taskTitleInput.value = '';
