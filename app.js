@@ -92,7 +92,7 @@ function displayTask(task) {
     li.setAttribute('data-id', task.id);
     li.innerHTML = `
         <div>
-            <strong>${task.title}</strong>
+            <strong>${task.title} (${task.category})</strong>
             <p>${task.description}</p>
             <p><em>Due Date: ${task.date}</em></p>
             <p><em>Priority: ${task.priority}</em></p>
@@ -119,6 +119,12 @@ function displayTask(task) {
 // Load tasks from localStorage
 function loadTasks() {
     const tasks = getTasks();
+
+    tasks.sort((a, b) => {
+        const priorityOrder = {"High": 3, "Medium": 2, "Low": 1};
+        return priorityOrder[b.priority] - priorityOrder[a.priority];
+    })
+
     tasks.forEach(displayTask);
 }
 
