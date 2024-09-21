@@ -117,16 +117,27 @@ function displayTask(task) {
 }
 
 // Load tasks from localStorage
+// Load tasks from localStorage and sort by priority
 function loadTasks() {
     const tasks = getTasks();
 
+    // Sort tasks based on priority: High > Medium > Low
     tasks.sort((a, b) => {
-        const priorityOrder = {"High": 3, "Medium": 2, "Low": 1};
-        return priorityOrder[b.priority] - priorityOrder[a.priority];
-    })
+        const priorityOrder = { "High": 3, "Medium": 2, "Low": 1 };
 
+        const aPriority = a.priority.charAt(0).toUpperCase() + a.priority.slice(1).toLowerCase();
+        const bPriority = b.priority.charAt(0).toUpperCase() + b.priority.slice(1).toLowerCase();
+
+        return priorityOrder[bPriority] - priorityOrder[aPriority]; 
+    });
+
+    // Clear the task list before adding sorted tasks
+    taskList.innerHTML = '';
+
+    // Display each task
     tasks.forEach(displayTask);
 }
+
 
 // Get tasks from localStorage
 function getTasks() {
