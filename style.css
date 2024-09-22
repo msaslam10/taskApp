@@ -163,3 +163,16 @@ li button:hover {
 .active {
     background-color: green;
 }
+
+.task-manager{
+    max-height: 50vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#task-list{
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 20px;
+}
