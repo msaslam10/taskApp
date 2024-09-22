@@ -1,2 +1,3 @@
 #ignore all .txt files
 *.txtnode_modules/
+node_modules/
