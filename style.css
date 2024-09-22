@@ -160,6 +160,6 @@ li button:hover {
     padding: 10px 2px;
 }
 
-.selected {
+.active {
     background-color: green;
 }

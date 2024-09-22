@@ -1,3 +1,4 @@
+let currentFilter = "All"; // Default filter
 
 // Function to switch between forms
 function switchForm(form) {
@@ -44,7 +45,7 @@ const taskPriorityInput = document.getElementById('task-priority');  // Select p
 const taskCategoryInput = document.getElementById('task-category');  // Select category
 
 // Load tasks from localStorage on page load
-document.addEventListener('DOMContentLoaded', loadTasks);
+document.addEventListener('DOMContentLoaded', () => {loadTasks(); setupFilters();});
 
 // Add event listener for form submission
 taskForm.addEventListener('submit', function(e) {
@@ -77,7 +78,7 @@ function addTask() {
     saveTask(task);
 
     // to sort the priority
-    loadTasks(task)
+    filterTasks(currentFilter)
 
     // displayTask(task);
 
@@ -179,4 +180,37 @@ function deleteTask(id) {
 function refreshTaskList() {
     taskList.innerHTML = '';
     loadTasks();
+}
+
+// Displaying tasks based on tags
+function filterTasks(filter) {
+    const tasks = getTasks();
+
+    const filteredTasks = tasks.filter(task => {
+        if (filter.toLowerCase() === "all") return true; // Show all if 'All' is selected
+        return task.category.toLowerCase() === filter.toLowerCase();
+    });
+
+    // Clear task list before showing filtered tasks
+    taskList.innerHTML = '';
+
+    // Display filtered tasks
+    filteredTasks.forEach(displayTask);
+}
+
+
+function setupFilters() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener("click", function(){
+            const filter = this.getAttribute('data-filter');
+            document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Update the current filter
+            currentFilter = filter;
+
+            // Filter tasks
+            filterTasks(currentFilter);
+        });
+    });
 }
