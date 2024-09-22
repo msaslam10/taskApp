@@ -88,6 +88,10 @@ function addTask() {
     taskDateInput.value = '';
     taskPriorityInput.value = '';    
     taskCategoryInput.value = ''; 
+
+
+    // Ensuring that placeholder category is displayed
+    taskCategoryInput.options[0].selected = true;
 }
 
 // Display a task in the task list
