@@ -1,0 +1,60 @@
+name: GitHub Events Automation with Cross-Browser Testing
+
+on:
+  # Triggers the workflow on a new pull request
+  pull_request:
+    branches:
+      - main
+  
+  # Triggers the workflow when a pull request is merged into the main branch
+  push:
+    branches:
+      - main
+
+  # Triggers when a new collaborator (contributor) is added
+  member:
+    types: [added]
+
+jobs:
+  # Job 1: Run cross-browser tests on pull request creation
+  test-on-pull-request:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]  # Run tests on Chrome, Firefox, and Safari engines
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install
+
+      - name: Run Playwright Cross-Browser Tests
+        run: npx playwright test --browser=${{ matrix.browser }}
+
+  # Job 2: Notify team on successful merge into main branch
+  notify-on-merge:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify the team about the successful merge
+        run: echo "Pull request merged to main branch. Notify team for deployment."
+
+  # Job 3: Welcome a new contributor
+  welcome-new-contributor:
+    if: github.event_name == 'member'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome new contributor
+        run: echo "Welcome, ${{ github.event.member.login }}! 🎉🚀 Thank you for joining the project!"
