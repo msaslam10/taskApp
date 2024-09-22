@@ -149,3 +149,17 @@ li button {
 li button:hover {
     background-color: #c9302c;
 }
+
+#filter-tags{
+    display: flex;
+    gap: 4px;
+}
+
+.filter-btn{
+    background-color: #999;
+    padding: 10px 2px;
+}
+
+.active {
+    background-color: green;
+}

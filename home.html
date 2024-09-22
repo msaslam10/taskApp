@@ -80,6 +80,7 @@
 
     <!-- Categorization -->
     <label for="task-category" placeholder="Task Category"></label>
+    <!-- Task Category Dropdown -->
     <select id="task-category">
         <option value="" selected>Task Category</option>
         <option value="work">Work</option>
@@ -87,11 +88,21 @@
         <option value="home">Home</option>
         <option value="education">Education</option>
         <option value="social">Social</option>
-        <option value="education">Education</option>
-        
     </select>
+
             <button type="submit">Add Task</button>
         </form>
+
+        <!-- Filter Tags -->
+        <div id="filter-tags">
+            <button class="filter-btn" data-filter="All">All</button>
+            <button class="filter-btn" data-filter="Work">Work</button>
+            <button class="filter-btn" data-filter="Personal">Personal</button>
+            <button class="filter-btn" data-filter="Home">Home</button>
+            <button class="filter-btn" data-filter="Education">Education</button>
+            <button class="filter-btn" data-filter="Social">Social</button>
+        </div>
+            
 
         <!-- Task list -->
         <ul id="task-list"></ul>
